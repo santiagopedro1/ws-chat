@@ -2,6 +2,6 @@
 	import '../app.pcss';
 </script>
 
-<slot></slot>
-
-<style></style>
+<main class="container grid grid-cols-1 py-4">
+	<slot></slot>
+</main>
