@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import WebSocket from 'ws';
 
 type Message = {
@@ -5,7 +6,10 @@ type Message = {
 	content: string;
 };
 
-const wss = new WebSocket.Server({ host: '192.168.0.103', port: 8080 });
+const wss = new WebSocket.Server({
+	host: process.env.HOST || 'localhost',
+	port: parseInt(process.env.PORT || '8080', 10)
+});
 
 let messages: Message[] = [];
 
