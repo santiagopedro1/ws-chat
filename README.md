@@ -1,38 +1,41 @@
-# create-svelte
+# Very lazy WebSocket chat
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This is a very lazy WebSocket chat. Theres literally no authentication, no
+encryption, no rate limiting, and no database. It's just a chat room.
 
-## Creating a project
+## Made with
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [SvelteKit](https://kit.svelte.dev/)
+- [Shadcn-svelte](https://shadcn-svelte.com/)
+- [Bun](https://bun.sh/) WebSocket API in the future, probably
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## How to use
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Install [Bun](https://bun.sh/)
+2. Install dependencies:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+bun install
 ```
 
-## Building
+3. If you want to use an IP other than localhost, or a different port, you
+   can change the `.env` file.
 
-To create a production version of your app:
+4. Build
 
 ```bash
-npm run build
+bun run build
 ```
 
-You can preview the production build with `npm run preview`.
+5. Start the WebSocket server
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```bash
+bun run websocketserver.ts
+```
+
+6. Start the frontend
+
+```bash
+cd build
+bun run index.js
+```
